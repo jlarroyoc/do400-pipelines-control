@@ -1,6 +1,9 @@
 node('nodejs') {
+    stage('Checkout') {
+        git branch: 'main',
+            url: 'https://github.com/jlarroyoc/do400-pipelines-control'
+    }    
     stage('Backend Tests') {
-        sh 'ls -las'
         sh 'node ./backend/test.js'
     }
     stage('Frontend Tests') {
